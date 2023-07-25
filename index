@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scientific Calculator</title>
+  <title>Colorful Calculator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      background-color: #000000;
     }
 
     .calculator {
-      width: 300px;
+      width: 250px;
       margin: 20px auto;
       padding: 10px;
-      background-color: #f9f9f9;
+      background-color: #2d2c2c;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
       border-radius: 5px;
     }
 
     .calculator .display {
-      font-size: 24px;
+      font-size: 20px;
       text-align: right;
       padding: 10px;
       background-color: #e0e0e0;
       border: 1px solid #ccc;
       border-radius: 3px;
       margin-bottom: 10px;
-      grid-column: span 4;
     }
 
     .calculator .buttons {
@@ -35,74 +34,71 @@
     }
 
     .calculator button {
-      font-size: 18px;
+      font-size: 16px;
       padding: 10px;
       border: none;
       border-radius: 3px;
       cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
-    }
-
-    .calculator button:hover {
-      background-color: #ddd;
-    }
-
-    .calculator button.clicked {
-      background-color: #ddd;
     }
 
     .calculator .operator {
-      background-color: #3498db;
+      background-color: #d8bc2f;
       color: #fff;
     }
 
     .calculator .number {
-      background-color: #95a5a6;
-      color: #fff;
-    }
-
-    .calculator .function {
-      background-color: #9b59b6;
-      color: #fff;
-    }
-
-    .calculator .special {
-      background-color: #e67e22;
-      color: #fff;
+      background-color: #fff;
+      color: #000000;
     }
 
     .calculator .clear {
-      background-color: #e74c3c;
+      background-color: #ff0000;
       color: #fff;
-      grid-column: span 2;
     }
+
+    .calculator .equal {
+      background-color: #20bf6b;
+      color: #fff;
+      grid-column: span 1;
+    }
+    .calculator .gray{
+	background-color:#c0c0c0;
+	}
+   h2{
+	text-align:center;
+	color: #fff
+}
   </style>
 </head>
 <body>
   <div class="calculator">
+	<h2 > My calculator </h2>
     <div class="display" id="display">0</div>
     <div class="buttons">
-      <button class="clear" onclick="clearDisplay()">C</button>
-      <button class="function" onclick="appendToDisplay('sin(')">sin</button>
-      <button class="function" onclick="appendToDisplay('cos(')">cos</button>
-      <button class="function" onclick="appendToDisplay('tan(')">tan</button>
+	 <button class="gray" onclick="appendToDisplay('(')">(</button>
+	 <button class="gray" onclick="appendToDisplay(')')">)</button>
+	<button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="appendToDisplay('/')">/</button>
+     
       <button class="number" onclick="appendToDisplay('7')">7</button>
       <button class="number" onclick="appendToDisplay('8')">8</button>
       <button class="number" onclick="appendToDisplay('9')">9</button>
-      <button class="operator" onclick="appendToDisplay('/')">/</button>
+	 <button class="operator" onclick="appendToDisplay('*')">x</button>
+      
       <button class="number" onclick="appendToDisplay('4')">4</button>
       <button class="number" onclick="appendToDisplay('5')">5</button>
       <button class="number" onclick="appendToDisplay('6')">6</button>
-      <button class="operator" onclick="appendToDisplay('*')">x</button>
+	<button class="operator" onclick="appendToDisplay('-')">-</button>
+     
       <button class="number" onclick="appendToDisplay('1')">1</button>
       <button class="number" onclick="appendToDisplay('2')">2</button>
       <button class="number" onclick="appendToDisplay('3')">3</button>
-      <button class="operator" onclick="appendToDisplay('-')">-</button>
-      <button class="special" onclick="appendToDisplay('Math.PI')">π</button>
+	 <button class="operator" onclick="appendToDisplay('+')">+</button>
+     
       <button class="number" onclick="appendToDisplay('0')">0</button>
-      <button class="special" onclick="appendToDisplay('.')">.</button>
-      <button class="operator" onclick="appendToDisplay('+')">+</button>
-      <button class="special" onclick="calculate()">=</button>
+      <button class="gray" onclick="appendToDisplay('.')">.</button>
+	 <button class="gray" onclick="appendToDisplay('%')">%</button>
+	 <button class="equal" onclick="calculate()">=</button>
     </div>
   </div>
 
@@ -128,9 +124,7 @@
         display.innerText = 'Error';
       }
     }
-
-    // Add transition effect on button click
-    const buttons = document.querySelectorAll('.calculator button');
+	const buttons = document.querySelectorAll('.calculator button');
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         button.classList.add('clicked');
@@ -139,6 +133,8 @@
         }, 200);
       });
     });
+    //end of the script
+    
   </script>
 </body>
 </html>
